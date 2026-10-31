@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 99%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary: Refined Gold */
+    --primary: 42 99% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 42 99% 50%;
+    --primary-light: 42 99% 70%;
+
+    /* Secondary: Sophisticated Navy */
+    --secondary: 215 35% 25%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 215 40% 35%;
+
+    /* Accent: Subtle complement */
+    --accent: 215 35% 25%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 215 20% 96%;
+    --muted-foreground: 215 15% 45%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 90%;
+    --input: 215 20% 90%;
+    --ring: 42 99% 60%;
+
+    --radius: 0.875rem;
+
+    /* Custom design tokens */
+    --text-dark: 215 25% 15%;
+    --text-medium: 215 15% 45%;
+    --text-light: 215 10% 60%;
+    
+    /* Premium shadows */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 30px -5px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 30% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 215 25% 14%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 215 25% 14%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 42 99% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 42 99% 50%;
+    --primary-light: 42 99% 70%;
+
+    --secondary: 215 40% 35%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 215 45% 45%;
+
+    --accent: 215 40% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 10% 65%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 42 99% 60%;
+    
+    /* Premium shadows for dark mode */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px 0 rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1 {
+    @apply text-6xl md:text-7xl font-extrabold tracking-tight;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl font-bold tracking-tight;
+  }
+
+  h3 {
+    @apply text-3xl font-semibold tracking-tight;
+  }
+
+  h4 {
+    @apply text-2xl font-semibold;
+  }
+
+  h5 {
+    @apply text-xl font-medium;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-sm);
+  }
+
+  .dark .glass-card {
+    background: rgba(31, 35, 45, 0.98);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(42 99% 60%), hsl(42 99% 50%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .premium-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .premium-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+}
